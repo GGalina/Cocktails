@@ -1,11 +1,11 @@
 {
-  "name": "goit-js-project",
+  "name": "cocktails",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://sklef5.github.io/goit-js-project",
+  "homepage": "https://ggalina.github.io/Cocktails",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /goit-js-project/"
+    "build": "parcel build src/*.html --public-url /Cocktails/"
   },
   "repository": {
     "type": "git",
