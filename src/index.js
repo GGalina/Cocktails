@@ -10,15 +10,12 @@ import {
 } from './js/mainblock/mainblock';
 import { favouritesClickEvent } from './js/favourites';
 import { getRandomCocktail } from './js/mainblock/rendercocktails';
-
 import { toggleMenu } from './js/header/mobile-menu';
-
 import {
   onSelectBtnClick,
   onAlphabetBtnClick,
 } from './js/hero/onclickfunctions';
 import { searchCocktail } from './js/header/searchbyname';
-
 import { getCocktailId, updateSize } from './js/favorite-cocktails/favorite';
 
 //import { favCocktailsEvents } from "./js/favorite-cocktails/favorite"
