@@ -33,7 +33,7 @@ To start the project, run the following command:
 ## Features
 **Cocktail Search**: Users can search for cocktails by name or ingredients.
 
-**Cocktail Details**: Clicking on a cocktail will display detailed information, including ingredients and instructions for preparation.
+**Cocktail Details**: Clicking on a "Learn more" button will display detailed information, including ingredients and instructions for preparation.
 
 **Favorite Cocktails**: Users can mark cocktails as favorites, which will be saved in the "Favorite Cocktails" tab for easy access.
 
