@@ -10,7 +10,7 @@ const {
   bgclr,
 } = refs;
 
-/** change theme */
+//------Theme change-------
 function checkBtn(event) {
   checkboxOn.removeEventListener('click', checkBtn);
   checkboxBurgerOn.removeEventListener('click', checkBtn);
@@ -26,7 +26,7 @@ function checkBtn(event) {
   localStorage.setItem('darkTheme', JSON.stringify(checkboxOn.checked));
   checkboxOn.addEventListener('click', checkBtn);
   checkboxBurgerOn.addEventListener('click', checkBtn);
-}
+};
 
 checkboxOn.addEventListener('click', checkBtn);
 checkboxBurgerOn.addEventListener('click', checkBtn);
@@ -36,7 +36,7 @@ if (useDarkTheme) {
   checkboxOn.checked = true;
   checkboxBurgerOn.checked = true;
   checkBtn();
-}
+};
 
 function updateStyle() {
   burgerOn.classList.toggle('js-bgcblack');
@@ -52,4 +52,4 @@ function updateStyle() {
   clrgr.forEach(item => {
     item.classList.toggle('js-colorgray');
   });
-}
+};

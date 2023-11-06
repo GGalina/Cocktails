@@ -1,11 +1,13 @@
 import { getDrink } from '../localstorage/localstorageforcocktail';
-import { defuneButton } from '../cocktailspage/getaddremovebutton';
+import { defineButton } from '../cocktailspage/getaddremovebutton';
 import { location } from '../global/location';
 
 export function refreshFavouriteButtons(id) {
   if (location === 'cocktails.html') return;
+
   let favouriteButton = document.querySelector(`.favourite[data-id="${id}"]`);
   let favourite = getDrink(id);
+
   if (
     (favourite && favouriteButton.classList.contains('addTo')) ||
     (!favourite && favouriteButton.classList.contains('removeFrom'))
@@ -13,7 +15,7 @@ export function refreshFavouriteButtons(id) {
     let e = { target: favouriteButton };
     favouritesClickEvent(e);
   }
-}
+};
 
 export function favouritesClickEvent(event) {
   let button = event.target;
@@ -21,16 +23,16 @@ export function favouritesClickEvent(event) {
     return;
   button.insertAdjacentHTML(
     'beforebegin',
-    defuneButton(button.dataset.id, button.dataset.name, button.dataset.image)
+    defineButton(button.dataset.id, button.dataset.name, button.dataset.image)
   );
 
   button.remove();
   attachFavouriteClickEvents();
-}
+};
 
 export function attachFavouriteClickEvents() {
   let buttons = document.querySelectorAll('.favourite');
   for (let button of buttons) {
     button.onclick = favouritesClickEvent;
   }
-}
+};

@@ -5,7 +5,7 @@ import { createPage } from '../cocktailspage/getcocktailspage';
 const {
   favoritesList,
   favoriteSearchItem,
-  prewButton,
+  prevButton,
   nextButton,
   favNococktails,
 } = refs;
@@ -18,7 +18,7 @@ export function initializeFavourites() {
   if (getDataFromlocalStorage === null ||getDataFromlocalStorage.length === 0) {
     favoritesList.innerHTML = '';
     favNococktails.textContent = "You haven't added any favorite cocktails yet";
-    prewButton.classList.add('is-hiden');
+    prevButton.classList.add('is-hiden');
     nextButton.classList.add('is-hiden');
     return;
   }
@@ -26,4 +26,4 @@ export function initializeFavourites() {
   let list = 'favoritesList';
 
   createPage(getDataFromlocalStorage, list);
-}
+};

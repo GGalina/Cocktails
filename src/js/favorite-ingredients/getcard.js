@@ -6,7 +6,7 @@ function drinkCheck(ingr) {
   } else {
     return ingr;
   }
-}
+};
 
 export function getFavouriteIngredientsCard(data) {
   return `<li id="favourite_${data.name
@@ -17,10 +17,10 @@ export function getFavouriteIngredientsCard(data) {
               <div class="fav-ingr__buttons">
                   <button class="ingredient-link learnMore" data-name="${
                     data.name
-                  }" data-type="${
-    data.type
-  }" data-modal-open-2>Learn more</button>
+                    }" data-type="${
+                    data.type
+  }                 " data-modal-open-2>Learn more</button>
                   ${renderAddRemoveIngredientButton(data.name, data.type)}
               </div>
-          </li>`;
-}
+  </li>`;
+};

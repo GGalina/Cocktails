@@ -1,12 +1,8 @@
 import { refs } from '../global/refs';
-import {
-  attachFavouriteClickEvents,
-  attachFavouritesRemoveClickEvents,
-} from '../modalcocktails/changebutton';
+import { attachFavouriteClickEvents } from '../modalcocktails/changebutton';
 import { getPageArr } from './getbutton';
-import { location } from '../global/location';
 
-const { ulTag, prewButton, nextButton } = refs;
+const { ulTag, prevButton, nextButton } = refs;
 
 export let page = 1;
 let array = [];
@@ -19,23 +15,17 @@ export function pagination(totalPages, page) {
 
   attachFavouriteClickEvents();
 
-  // if (location === '' || location === 'index.html') {
-  //   attachFavouriteClickEvents();
-  // } else if (location === 'cocktails.html') {
-  //   attachFavouriteClickEvents();
-  // } else if (location === 'ingredients.html') {
-  //   attachFavouriteClickEvents();
-  // }
-
   if (totalPages > 6) {
     if (page < 3) {
       thirdPages = 1;
       page = 3;
     }
+
     if (page > totalPages - 3) {
       page = totalPages - 3;
       thirdPages = page - 2;
     }
+
     for (let i = thirdPages; i <= page; i++) {
       if (i === curentPage) {
         liTag += `<li class="pagination-item"><button class="pagination-number active" type="button">${i}</button></li>`;
@@ -43,6 +33,7 @@ export function pagination(totalPages, page) {
         liTag += `<li class="pagination-item"><button class="pagination-number" type="button">${i}</button></li>`;
       }
     }
+
     liTag += `<li class="pagination-item dot-item"><span>...</span></li>`;
     for (let i = thirdPagesAnd; i <= totalPages; i++) {
       if (i === curentPage) {
@@ -55,6 +46,7 @@ export function pagination(totalPages, page) {
     for (let i = 1; i < page; i++) {
       liTag += `<li class="pagination-item"><button class="pagination-number" type="button">${i}</button></li>`;
     }
+
     for (let i = page; i <= totalPages; i++) {
       if (i === page) {
         liTag += `<li class="pagination-item"><button class="pagination-number active" type="button">${i}</button></li>`;
@@ -64,29 +56,29 @@ export function pagination(totalPages, page) {
     }
   }
   ulTag.innerHTML = liTag;
-}
+};
 
-/***бокові кнопки листання */
+//---------- Side arrow buttons ------
 export function reloadButton(totalPage, page) {
   if (page === 1) {
-    prewButton.setAttribute(
+    prevButton.setAttribute(
       'disabled',
       'true'
-    ); /***!!!!ljдобавить не кликабельность */
+    ); 
   } else {
-    prewButton.removeAttribute('disabled');
+    prevButton.removeAttribute('disabled');
   }
   if (page === totalPage) {
     nextButton.setAttribute(
       'disabled',
       'true'
-    ); /***!!!!ljдобавить не кликабельность */
+    ); 
   } else {
     nextButton.removeAttribute('disabled');
   }
-}
-/*** */
-async function loadMor(event) {
+};
+
+async function loadMore(event) {
   if (
     event.target.classList.contains('pagination-arrow') ||
     event.target.classList.contains('pagination-number')
@@ -96,20 +88,18 @@ async function loadMor(event) {
   } else {
     return;
   }
-}
+};
 
 async function prewList(event) {
   page -= 1;
   getPageArr(page);
-}
+};
 
 export async function nextList(event) {
   page += 1;
   getPageArr(page);
-}
+};
 
-prewButton.addEventListener('click', prewList);
-
+prevButton.addEventListener('click', prewList);
 nextButton.addEventListener('click', nextList);
-
-ulTag.addEventListener('click', loadMor);
+ulTag.addEventListener('click', loadMore);

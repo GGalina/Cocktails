@@ -11,6 +11,7 @@ export function renderAddRemoveIngredientButton(name, type) {
       (svg = ' selected')
     );
   }
+
   return renderAddRemoveDrinkButton(
     name,
     type,
@@ -18,7 +19,7 @@ export function renderAddRemoveIngredientButton(name, type) {
     (typeClass = 'addToIng'),
     (svg = '')
   );
-}
+};
 
 function renderAddRemoveDrinkButton(
   name,
@@ -28,9 +29,8 @@ function renderAddRemoveDrinkButton(
   svg
 ) {
   return `<button class="favourite ${typeClass}"  data-name="${name}"  data-type="${type}">${titleName}
-         <svg class="icon-heart${svg}">
-             <use href="${icons}#heart"></use>
-         </svg>
-       </button>`;
-}
-
+    <svg class="icon-heart${svg}">
+      <use href="${icons}#heart"></use>
+    </svg>
+  </button>`;
+};

@@ -85,6 +85,7 @@
   border: 1px solid $accent;
   border-radius: 4px;
 }
+
 .select__list::-webkit-scrollbar {
   width: 3px;
 }
@@ -100,6 +101,7 @@
   height: 44px;
   border-radius: 5px;
 }
+
 .select__item {
   font-family: Poppins;
   font-weight: 700;
@@ -178,7 +180,7 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@include tabletPlus {
   .hero__section {
     width: 768px;
     padding-top: 77px;

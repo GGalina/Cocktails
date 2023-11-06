@@ -2,44 +2,13 @@ import * as icons from '../images/svg/symbol-defs.svg';
 import { initializeFavourites } from './favorite-cocktails/favorite';
 import { initializeFavouritesIng } from './favorite-ingredients/favorite-ingredients';
 
-//---------------------------------Вступ до роботи з бекендом-------------------------------------------//
-// import { getAuth, onAuthStateChanged } from "firebase/auth";
-
-// import { readFavoriteDrinks, writeFavoriteDrinks, deleteFavoriteDrink, userIdFunc } from './firebase';
-// import { getDatabase, ref, set, get, child, update, remove, onValue } from "firebase/database";
-
-// const auth = getAuth();
-
-// onAuthStateChanged(auth, async (user) => {
-//       if (user) {
-//         // User is signed in, see docs for a list of available properties
-//         // https://firebase.google.com/docs/reference/js/firebase.User
-//         const uid = user.uid;
-//         // console.log('hello i am authorized,', uid);
-//         const dbRef = ref(getDatabase());
-//         await get(child(dbRef, `users/${uid}/favoriteDrinks`)).then(snapshot => {
-//         if (snapshot.exists()) {
-//             localStorage.setItem('favorite-cocktail', JSON.stringify(Object.values(snapshot.val())));
-//             // window.location.reload();
-//             // window.location.replace('/');
-//             } else {
-//                 console.log("No data available");
-//             }
-//         }).catch(error => console.log(error));
-//         // ...
-//       } else {
-//           alert('please authorize by click on the user icon');
-//       }
-//     });
-//---------------------------------Вступ до роботи з бекендом-------------------------------------------//
-
 export function getFavouriteDrinks() {
   return JSON.parse(localStorage.getItem('favorite-cocktail')) ?? [];
-}
+};
 
 function setFavouriteDrinks(favourites) {
   localStorage.setItem('favorite-cocktail', JSON.stringify(favourites));
-}
+};
 
 export function addDrink(id, name, image) {
   if (!getDrink(id)) {
@@ -48,7 +17,7 @@ export function addDrink(id, name, image) {
     favourites.push(favouriteDrink);
     setFavouriteDrinks(favourites);
   }
-}
+};
 
 export function removeDrink(id) {
   let favourites = getFavouriteDrinks();
@@ -60,7 +29,7 @@ export function removeDrink(id) {
     }
   }
   setFavouriteDrinks(updatedFavourites);
-}
+};
 
 export function getDrink(id) {
   for (let drink of getFavouriteDrinks()) {
@@ -68,7 +37,7 @@ export function getDrink(id) {
       return drink;
     }
   }
-}
+};
 
 export function renderAddRemoveDrinkButton(id, name, image) {
   if (getDrink(id)) {
@@ -84,15 +53,15 @@ export function renderAddRemoveDrinkButton(id, name, image) {
         <use href="${icons}#heart"></use>
       </svg>
       </button>`;
-}
+};
 
 export function getFavouriteIngredients() {
   return JSON.parse(localStorage.getItem('favorite-ingredient')) ?? [];
-}
+};
 
 function setFavouriteIngredients(favourites) {
   localStorage.setItem('favorite-ingredient', JSON.stringify(favourites));
-}
+};
 
 export function addIngredient(name, type) {
   if (!getIngredient(name)) {
@@ -101,13 +70,13 @@ export function addIngredient(name, type) {
     favourites.push(favouriteIngredient);
     setFavouriteIngredients(favourites);
   }
-}
+};
 
 export function removeIngredient(name, type) {
   let favourites = getFavouriteIngredients();
   favourites.splice(favourites.findIndex((o) => { return o.name === name && o.type === type }), 1);
   setFavouriteIngredients(favourites);
-}
+};
 
 export function getIngredient(name) {
   for (let ingredient of getFavouriteIngredients()) {
@@ -115,7 +84,7 @@ export function getIngredient(name) {
       return ingredient;
     }
   }
-}
+};
 
 export function renderAddRemoveIngredientButton(name, type) {
   if (getIngredient(name)) {
@@ -131,7 +100,7 @@ export function renderAddRemoveIngredientButton(name, type) {
         <use href="${icons}#heart"></use>
       </svg>
       </button>`;
-}
+};
 
 export function refreshFavouriteButtons(id) {
   let favouriteButton = document.querySelector(`.favourite[data-id="${id}"]`);
@@ -144,7 +113,7 @@ export function refreshFavouriteButtons(id) {
     let e = { target: favouriteButton };
     favouritesClickEvent(e);
   }
-}
+};
 
 export function favouritesClickEvent(event) {
   let button = event.target;
@@ -180,7 +149,7 @@ export function favouritesClickEvent(event) {
 
   button.remove();
   attachFavouriteClickEvents();
-}
+};
 
 export function favouritesRemoveClickEvent(event) {
   let button = event.target;
@@ -201,14 +170,15 @@ export function favouritesRemoveClickEvent(event) {
   } else if (location === 'ingredients.html') {
     initializeFavouritesIng();
   }
-}
+};
 
 export function attachFavouriteClickEvents() {
   let buttons = document.querySelectorAll('.favourite');
+  
   for (let button of buttons) {
     button.onclick = favouritesClickEvent;
   }
-}
+};
 
 export function attachFavouritesRemoveClickEvents() {
   let buttons = document.querySelectorAll('.favourite');
@@ -216,4 +186,4 @@ export function attachFavouritesRemoveClickEvents() {
   for (let button of buttons) {
     button.onclick = favouritesRemoveClickEvent;
   }
-}
+};

@@ -21,4 +21,4 @@ export function searchInFavCocktails(name) {
   } catch (error) {
     console.log(error);
   }
-}
+};

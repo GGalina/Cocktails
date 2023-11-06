@@ -22,4 +22,4 @@ export function getPageArr(page) {
   }
   reloadButton(array.length, page);
   pagination(array.length, page);
-}
+};

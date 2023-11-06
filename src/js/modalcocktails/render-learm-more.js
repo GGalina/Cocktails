@@ -52,7 +52,7 @@ export function displayMoreInfo(data) {
   addBtnEl.addEventListener(`click`, onAddBtn);
   removeBtnEl.addEventListener(`click`, onRemoveBtn);
 
-  // ---------Add to favorite кнопка додае картинку та назву коктелю до Local storage-------
+  // ---------"Add to favorite" button adds image and name of cocktail to Local storage-------
   function onAddBtn(event) {
     try {
       addDrink(
@@ -66,9 +66,9 @@ export function displayMoreInfo(data) {
     } catch (error) {
       console.error(error.message);
     }
-  }
+  };
 
-  //------Remove from favorite кнопка видаляе елемент з Local storage-------
+  //------"Remove from favorite" button deletes element from Local storage-------
   function onRemoveBtn(event) {
     try {
       removeBtnEl.classList.add(`is-hidden`);
@@ -78,5 +78,5 @@ export function displayMoreInfo(data) {
     } catch (error) {
       console.error(error.message);
     }
-  }
-}
+  };
+};

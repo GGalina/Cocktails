@@ -19,6 +19,7 @@ body.modal-open {
 
 hr {
   display: none;
+
   @include tabletPlus {
     display: block;
     border: 1px solid $accent;
@@ -37,6 +38,7 @@ hr {
   z-index: 20;
 
   box-shadow: 0px 0px 32px 10px rgba(246, 242, 242, 0.59);
+
   @include tabletPlus {
     max-width: 822px;
   }
@@ -86,6 +88,7 @@ hr {
 
 .close-icon {
   fill: $fill-color;
+
   &:hover {
     fill: $accent;
   }
@@ -221,16 +224,19 @@ hr {
   display: block;
   margin-bottom: 80px;
   margin-left: 12px;
+
   @include tabletPlus {
     margin: 0;
     padding-left: 12px;
   }
 }
+
 .ingredients-list {
   @include tabletPlus {
     margin-bottom: 80px;
   }
 }
+
 .list-scroll {
   @include tabletPlus {
     height: 111px;
@@ -344,9 +350,11 @@ body.js-bgcblack .modal-learn-more-data:hover,
 body.js-bgcblack .modal-learn-more-item:hover {
   color: $accent;
 }
+
 body.js-bgcblack .modal-learn-more-item:hover .ingredient-link {
   color: $accent;
 }
+
 body.js-bgcblack .backdrop .ingredient-link {
   color: $main-color3;
 
@@ -354,6 +362,7 @@ body.js-bgcblack .backdrop .ingredient-link {
     color: $modal-color;
   }
 }
+
 body.js-bgcblack .modal-desc,
 body.js-bgcblack .modal-ingredients-list,
 body.js-bgcblack .modal-learn-more-data,
@@ -370,6 +379,7 @@ body.js-bgcblack .ingredient-list-item {
 
 body.js-bgcblack .close-icon {
   fill: $main-color3;
+
   &:hover {
     fill: $accent;
   }
@@ -385,11 +395,13 @@ body.js-bgcblack .remove-item-btn:hover {
   height: 5px;
   background-color: transparent;
 }
+
 ::-webkit-scrollbar-thumb {
   background-color: $main-button;
   border-radius: 10px;
   height: 100px;
 }
+
 .icon-heart,
 .icon-heart.selected {
   pointer-events: none;

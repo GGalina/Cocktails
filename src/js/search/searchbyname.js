@@ -25,7 +25,8 @@ export function getInputData(evt) {
   if (evt.currentTarget === inputFormBurger) {
     mobileMenu.classList.toggle('is-open');
   }
-  /**перевірка на пустий інпут */
+
+ //-------Check if input is empty-------
   if (!inputData) {
     cocktailsList.innerHTML = '';
 
@@ -33,7 +34,7 @@ export function getInputData(evt) {
     noCocktails.classList.remove('is-hidden');
     return;
   }
-  /**перевірка на сторінку вводу */
+  //--------Check on which page input------
   if (location === 'cocktails.html') {
     searchInFavCocktails(inputData);
     return;
@@ -45,11 +46,11 @@ export function getInputData(evt) {
 
   inputForm.reset();
   inputFormBurger.reset();
-}
+};
 
 function searchByName(name) {
   renderPage(getDataFromSearch(PATH_SEARCH, name));
-}
+};
 
 btnSearchFormBurger.addEventListener(
   'click',

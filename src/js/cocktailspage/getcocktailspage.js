@@ -4,7 +4,7 @@ import { pagination } from '../paginations/pagination';
 import { viewportWidthCheck } from '../global/viewportsize';
 
 const {
-  prewButton,
+  prevButton,
   nextButton,
   pagContainer,
   cocktailsList,
@@ -25,14 +25,14 @@ export function createPage(getData, list) {
   let tempArray = [];
   typeOfList = list;
   if (list === 'cocktailsList') {
-    // рендерим сторінку знайдених напоїв//
+    // ----------Render of cocktails list-----------
     noCocktails.classList.add('is-hidden');
     cocktailsTitle.textContent = 'Searching results';
     cocktailsTitle.classList.remove('is-hidden');
     tempArray = getData.data.drinks;
 
   } else if (list === 'favoritesList'|| list === 'favIngredientsList') {
-    // рендерим сторінку обраних напоїв//
+    // -------Render of favorite cocktails list-------
     tempArray = getData;
   }
 
@@ -45,14 +45,14 @@ export function createPage(getData, list) {
     getValue.push(myChunk);
   }
   if (totalPage(lengthArr) > 1) {
-    prewButton.classList.remove('is-hiden');
+    prevButton.classList.remove('is-hiden');
     nextButton.classList.remove('is-hiden');
     nextButton.removeAttribute('disabled');
-    pagContainer.classList.add('pading');
+    pagContainer.classList.add('padding');
     pagination(totalPage(lengthArr), 1);
   } else {
-    pagContainer.classList.add('pading');
-    prewButton.classList.add('is-hiden');
+    pagContainer.classList.add('padding');
+    prevButton.classList.add('is-hiden');
     nextButton.classList.add('is-hiden');
     pagination(0, 1);
   }

@@ -9,14 +9,12 @@ export function toggleFavorites(evt) {
       toggle(evt.target.closest('button.removeFrom'));
     }
   } catch {
-    console.log('hello i am Return');
     return;
   }
-}
+};
 
 function toggle(button) {
   if (button.classList.contains('removeFrom')) {
-    console.log('hello i am Remove');
     const addTo = `
             <button class="addTo">Add to
                 <svg class="icon-heart">
@@ -28,7 +26,6 @@ function toggle(button) {
     button.remove();
     return;
   } else {
-    console.log('hello i am Add to');
     const removeFrom = `
         <button class="removeFrom">Remove
             <svg class="icon-heart-selected">
@@ -39,4 +36,4 @@ function toggle(button) {
     button.insertAdjacentHTML('beforebegin', removeFrom);
     button.remove();
   }
-}
+};

@@ -14,7 +14,8 @@ export function initializeFavouritesIng() {
     favNoingr.classList.remove('is-hidden');
     return;
   }
+
   favNoingr.classList.add('is-hidden');
   let list = 'favIngredientsList'
   createPage(data, list)
-}
+};

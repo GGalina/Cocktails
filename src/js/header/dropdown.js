@@ -17,13 +17,13 @@ function onClickDropdownOff(evt) {
   dropDownItems.classList.remove('show');
   dropDownItemsMob.classList.remove('show');
   bodyOn.removeEventListener('click', onClickDropdownOff);
-}
+};
 
 export function onClickDropdownOn() {
   dropDownItems.classList.toggle('show');
   dropDownItemsMob.classList.toggle('show');
   bodyOn.addEventListener('click', onClickDropdownOff);
-}
+};
 
 dropDownBtn.addEventListener('click', onClickDropdownOn);
 dropDownBtnMob.addEventListener('click', onClickDropdownOn);

@@ -9,7 +9,7 @@ export async function getDataFromSearch(path, search) {
   } catch (error) {
     console.log(error);
   }
-}
+};
 
 export function renderPage(data) {
   data.then(e => {
@@ -20,4 +20,4 @@ export function renderPage(data) {
     let list = 'cocktailsList';
     createPage(e, list);
   });
-}
+};

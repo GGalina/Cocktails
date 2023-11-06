@@ -11,15 +11,15 @@ export function accumulateCocktails(setSize) {
     cocktailsSet.push(getRandomCocktail());
   }
   return cocktailsSet;
-}
+};
 
 export function pourCocktails(cocktailSetSize) {
   Promise.all(cocktailSetSize).then(data => {
     renderCocktails(data.map(e => getCocktailsCard(e.data.drinks[0])).join(''));
   });
-}
+};
 
 export function returnCocktails() {
   title.textContent = 'Cocktails';
   pourCocktails(accumulateCocktails(viewportWidthCheck()));
-}
+};

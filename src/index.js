@@ -5,7 +5,6 @@ import { onClickDropdownOn } from './js/header/dropdown';
 import { checkBtn } from './js/header/checkbox';
 import { defineClick } from './js/cocktailspage/getaction';
 import { location } from './js/global/location';
-
 import {
   returnCocktails,
   viewportWidthCheck,
@@ -15,16 +14,9 @@ import {
 import { favouritesClickEvent } from './js/modalcocktails/changebutton';
 import { getRandomCocktail } from './js/mainblock/rendercocktails';
 import { toggleMenu } from './js/header/mobile-menu';
-import {
-  onSelectBtnClick,
-  onAlphabetBtnClick,
-
-} from './js/hero/onclickfunctions';
-
+import { onSelectBtnClick, onAlphabetBtnClick } from './js/hero/onclickfunctions';
 import { getCocktailId, updateSize } from './js/favorite-cocktails/favorite';
-
 import { getInputData } from './js/search/searchbyname';
-
 import { initializeFavourites } from './js/favorite-cocktails/favorite';
 import { initializeFavouritesIng } from './js/favorite-ingredients/favorite-ingredients';
 
@@ -51,22 +43,20 @@ closeMenuBtn.addEventListener('click', toggleMenu);
 
 if (location === '' || location === 'index.html') {
   returnCocktails();
-  //cocktailsList.addEventListener('click', favouritesClickEvent);
-
   selectBtn.addEventListener('click', onSelectBtnClick);
   alphabet.addEventListener('click', onAlphabetBtnClick);
 } else if (location === 'cocktails.html') {
-  //function watch viewport size and load limited for current viewport amount of elements
+  //------Function watch viewport size and load limited for current viewport amount of elements-------
   window.addEventListener('resize', debounce(initializeFavourites, 300));
   initializeFavourites();
 } else if (location === 'ingredients.html') {
-  //watch viewport size and load limited for current viewport amount of elements
+  //-------Watch viewport size and load limited for current viewport amount of elements------
   window.addEventListener('resize', debounce(initializeFavouritesIng, 300));
 
   initializeFavouritesIng();
 }
 
-//scroll
+//-------------Scroll---------------------------
 document.addEventListener('scroll', function () {
   toTopButton.classList.remove('is-hidden');
 

@@ -23,9 +23,9 @@ export function addButtonListener() {
     } catch (error) {
       console.error(error.message);
     }
-  }
+  };
 
-  // ------Remove from favorite кнопка видаляе елемент з Local storage-------
+  // ------"Remove from favorite" button removes element from Local storage-------
   function onRemoveBtn(event) {
     try {
       removeIngredient(event.target.dataset.name, event.target.dataset.type);
@@ -34,8 +34,8 @@ export function addButtonListener() {
     } catch (error) {
       console.error(error.message);
     }
-  }
-}
+  };
+};
 
 export function getIngredient(name) {
   for (let ingredient of getFavouriteIngredients()) {
@@ -43,15 +43,15 @@ export function getIngredient(name) {
       return ingredient;
     }
   }
-}
+};
 
 export function getFavouriteIngredients() {
   return JSON.parse(localStorage.getItem('favorite-ingredient')) ?? [];
-}
+};
 
 function setFavouriteIngredients(favourites) {
   localStorage.setItem('favorite-ingredient', JSON.stringify(favourites));
-}
+};
 
 export function addIngredient(name, type) {
   if (!getIngredient(name)) {
@@ -60,7 +60,7 @@ export function addIngredient(name, type) {
     favourites.push(favouriteIngredient);
     setFavouriteIngredients(favourites);
   }
-}
+};
 
 export function removeIngredient(name, type) {
   let favourites = getFavouriteIngredients();
@@ -75,4 +75,4 @@ export function removeIngredient(name, type) {
     closeModalIngOnBtn();
     initializeFavouritesIng();
   }
-}
+};

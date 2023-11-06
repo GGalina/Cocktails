@@ -26,4 +26,4 @@ import { renderAddRemoveDrinkButton } from './favourites';
     `;
   }
   return cocktailsMarkup;
-}
+};

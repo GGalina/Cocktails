@@ -18,9 +18,11 @@ body.modal-open {
 
 hr {
   display: none;
+
   @include tabletPlus {
     display: block;
     border: 1px solid $accent;
+    margin-bottom: 60px;
   }
 }
 
@@ -34,8 +36,9 @@ hr {
   position: relative;
   opacity: 1;
   z-index: 40;
+  box-shadow: 0px 0px 32px 10px 
+    rgba(246, 242, 242, 0.59);
 
-box-shadow: 0px 0px 32px 10px rgba(246, 242, 242, 0.59);
   @include tabletPlus {
     max-width: 822px;
   }
@@ -85,6 +88,7 @@ box-shadow: 0px 0px 32px 10px rgba(246, 242, 242, 0.59);
 
 .close-icon {
   fill: $fill-color;
+
   &:hover {
     fill: $accent;
   }
@@ -130,6 +134,7 @@ box-shadow: 0px 0px 32px 10px rgba(246, 242, 242, 0.59);
   @include tabletPlus {
     position: static;
     text-align: center;
+    margin-bottom: 30px;
   }
 }
 
@@ -160,7 +165,7 @@ box-shadow: 0px 0px 32px 10px rgba(246, 242, 242, 0.59);
   color: $input_plholder;
   margin-bottom: 80px;
   text-align: left;
-  height: 250px;
+  max-height: 250px;
   overflow: auto;
 }
 
@@ -222,16 +227,19 @@ box-shadow: 0px 0px 32px 10px rgba(246, 242, 242, 0.59);
   display: block;
   margin-bottom: 80px;
   margin-left: 12px;
+
   @include tabletPlus {
-      margin: 0;
-      padding-left: 12px;
+    margin: 0;
+    padding-left: 12px;
   }
 }
+
 .ingredients-list {
   @include tabletPlus {
     margin-bottom: 80px;
   }
 }
+
 .list-scroll {
   @include tabletPlus {
     height: 111px;
@@ -284,8 +292,8 @@ box-shadow: 0px 0px 32px 10px rgba(246, 242, 242, 0.59);
 }
 
 .modal-learn-more-item:hover .ingredient-link {
-   color: $main-button;
- }
+  color: $main-button;
+}
 
 .add-item-btn,
 .remove-item-btn {
@@ -347,9 +355,11 @@ body.js-bgcblack .modal-learn-more-data:hover,
 body.js-bgcblack .modal-learn-more-item:hover {
   color: $accent;
 }
+
 body.js-bgcblack .modal-learn-more-item:hover .ingredient-link {
   color: $accent;
 }
+
 body.js-bgcblack .backdrop .ingredient-link {
   color: $main-color3;
 
@@ -357,6 +367,7 @@ body.js-bgcblack .backdrop .ingredient-link {
     color: $modal-color;
   }
 }
+
 body.js-bgcblack .modal-desc,
 body.js-bgcblack .modal-ingredients-list,
 body.js-bgcblack .modal-learn-more-data,
@@ -388,11 +399,13 @@ body.js-bgcblack .remove-item-btn:hover {
   height: 5px;
   background-color: transparent;
 }
+
 ::-webkit-scrollbar-thumb {
   background-color: $main-button;
   border-radius: 10px;
   height: 100px;
 }
+
 .icon-heart,
 .icon-heart.selected {
   pointer-events: none;

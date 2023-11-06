@@ -1,4 +1,4 @@
-//формуємо список інгридієнтів
+//------Render ingredients list------
 export function listIngredients(drink) {
   let list = '';
   for (let i = 1; i < 16; i++) {
@@ -27,4 +27,4 @@ export function listIngredients(drink) {
     }
   }
   return list;
-}
+};

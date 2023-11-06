@@ -5,8 +5,7 @@ import {
 } from '../favourites';
 import { attachEvents } from '../modallearnmore/modal-learn-more';
 
-const { favoritesList, favoritesTitle, favoriteSearchItem, paginationBlock } =
-  refs;
+const { favoritesList, favoritesTitle, favoriteSearchItem, paginationBlock } = refs;
 
 export function searchInFavCocktails(name) {
   attachFavouriteClickEvents();
@@ -21,8 +20,8 @@ export function searchInFavCocktails(name) {
         paginationBlock.classList.add('is-hidden');
         favoriteSearchItem.innerHTML = `<a class="cocktail-link" href="#" data-modal-open>
                     <img src="${item.img}" class="fav-cocktails__img" alt=${
-          item.name
-        } cocktail" data-id="${item.id}">
+                        item.name
+                      } cocktail" data-id="${item.id}">
                   </a>
                   <h3 class="fav-cocktails__item-title">${item.name}</h3>
                   <div class="fav-cocktails__buttons">
@@ -44,4 +43,4 @@ export function searchInFavCocktails(name) {
   } catch (error) {
     console.log(error);
   }
-}
+};

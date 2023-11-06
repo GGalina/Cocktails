@@ -7,4 +7,4 @@ export function getCoctailsList(data) {
     return data.map(getFavouriteIngredientsCard).join('')
   }
   return data.map(getCocktailsCard).join('');
-}
+};

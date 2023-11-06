@@ -6,7 +6,7 @@ import axios from 'axios';
 import { refs } from '../global/refs';
 const {  contentEl} = refs;
 
-//-------Дістаемо імя з елемента лінка на який натиснули-------
+//-------Getting name from the element that was pressed------
 async function fetchData(name) {
   const BASE_URL = 'https://www.thecocktaildb.com/api/json/v1/1/search.php';
   try {
@@ -17,12 +17,13 @@ async function fetchData(name) {
   } catch (error) {
     console.log(error.message);
   }
-}
+};
 
-// //------Перевірити чи є атрибют в API та додати ------
+//--------Check if attribute exists in API and add to a list -----
 export async function onIngredient(event) {
   event.preventDefault();
   contentEl.innerHTML = '';
+
   try {
     const returnedData = await fetchData(event.target.dataset.name);
     displayMoreInfo(returnedData.ingredients);
@@ -34,16 +35,18 @@ export async function onIngredient(event) {
       }
       return type;
     }
-    contentEl
-      .querySelector('.ingredient-header')
-      .insertAdjacentHTML('afterend', checkType(ingredient));
+    const ingredientHeader = contentEl.querySelector('.ingredient-header');
+    if (ingredientHeader) {
+      ingredientHeader.insertAdjacentHTML('afterend', checkType(ingredient));
+    }
+
     function ingredientDescription(ingredient) {
       let description = '';
       if (ingredient.strDescription != null) {
         description += `<p class="modal-desc ingredient-desc">${ingredient.strDescription}</p>`;
       }
       return description;
-    }
+    };
 
     if (contentEl.querySelector('.ingredient-sub-header')) {
       contentEl
@@ -54,7 +57,7 @@ export async function onIngredient(event) {
         'afterend',
         ingredientDescription(ingredient)
       );
-    }
+    };
 
     function listInIngredient(ingredient) {
       let list = '';
@@ -65,17 +68,19 @@ export async function onIngredient(event) {
         list += `<li class="ingredient-list-item"><span class="ingredient-list-data">Alcohol by volume: ${ingredient.strABV} % </span></li>`;
       }
       return list;
+    };
+
+    const ingredientList = contentEl.querySelector('.ingredients-list')
+    if (ingredientList) {
+      ingredientHeader.insertAdjacentHTML('beforeend', listInIngredient(ingredient));
     }
-    contentEl
-      .querySelector('.ingredients-list')
-      .insertAdjacentHTML('beforeend', listInIngredient(ingredient));
 
   } catch (error) {
     console.log(error.message);
   }
-}
+};
 
-// //-----Додаемо елементи в розмітку------
+//-------Adding elements to HTML------
 export function displayMoreInfo(data) {
   let exists = getIngredient(data[0].strIngredient);
 
@@ -85,7 +90,7 @@ export function displayMoreInfo(data) {
         `<h2 class="modal-header ingredient-header">${
           ingredient.strIngredient
         }</h2>
-        <hr />
+        
 
         <button type="submit" 
             class="add-item-btn${exists ? ' is-hidden' : ''}" 
@@ -104,4 +109,4 @@ export function displayMoreInfo(data) {
     .join('');
   contentEl.insertAdjacentHTML('beforeend', result);
   addButtonListener();
-}
+};

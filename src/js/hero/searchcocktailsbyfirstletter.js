@@ -1,12 +1,9 @@
 import axios from 'axios';
-
 import { BASE_URL } from '../const';
 import { refs } from '../refs';
 import { VIEWPORT_SIZES } from '../const';
 import { createCocktailsMarkupByViewportSize } from './createcocktailsmarkupbyviewportsize';
 import { viewportWidthCheck } from '../mainblock/mainblock';
-import { attachEvents } from '../modallearnmore/modal-learn-more';
-import { attachFavouriteClickEvents } from '../favourites';
 import { getValue } from '../header/searchbyname';
 import { pagination } from '../pagination';
 
@@ -15,7 +12,7 @@ const {
   cocktailsList,
   cocktailsTitle,
   noCocktails,
-  prewButton,
+  prevButton,
   nextButton,
   pagContainer,
 } = refs;
@@ -37,7 +34,7 @@ export async function searchCocktailsByFirstLetter(letter) {
 
       noCocktails.classList.remove('is-hidden');
 
-      prewButton.classList.add('is-hiden');
+      prevButton.classList.add('is-hiden');
       nextButton.classList.add('is-hiden');
       pagination(0, 1);
 
@@ -65,21 +62,20 @@ export async function searchCocktailsByFirstLetter(letter) {
     );
 
     if (totalPage > 1) {
-      prewButton.classList.remove('is-hiden');
+      prevButton.classList.remove('is-hiden');
       nextButton.classList.remove('is-hiden');
       nextButton.removeAttribute('disabled');
-      pagContainer.classList.add('pading');
+      pagContainer.classList.add('padding');
       pagination(totalPage, 1);
     } else {
-      prewButton.classList.add('is-hiden');
+      prevButton.classList.add('is-hiden');
       nextButton.classList.add('is-hiden');
-      pagContainer.classList.add('pading');
+      pagContainer.classList.add('padding');
       pagination(0, 1);
     }
+
     window.location.href = '#results';
-    // attachEvents();
-    // attachFavouriteClickEvents();
   } catch (error) {
     console.log(error);
   }
-}
+};

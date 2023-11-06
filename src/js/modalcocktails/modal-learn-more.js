@@ -4,9 +4,9 @@ import { displayMoreInfo } from './render-learm-more';
 import { BASE_URL, PATH_SEARCH_ID } from '../global/const';
 import { listIngredients } from './render-ingredient-list';
 
-const { openModalBtn, closeModalBtn, modal, modalContainer, galleryEl } = refs;
+const { galleryEl } = refs;
 
-//-------Дістаемо ID з елемента на якому натиснули learn more-------
+//-------Getting ID from the element where "learn more" button was pressed-------
 async function fetchData(id) {
   try {
     const response = await axios.get(`${BASE_URL}${PATH_SEARCH_ID}` + id);
@@ -14,12 +14,13 @@ async function fetchData(id) {
   } catch (error) {
     console.log(error.message);
   }
-}
+};
 
-//------Перевірити чи є атрибют в API та додати до листа------
+//------Check if attribute exists in API and add it to a list ------
 export async function onLearnMore(event) {
   event.preventDefault();
   galleryEl.innerHTML = '';
+
   try {
     const returnedData = await fetchData(event.target.dataset.id);
     displayMoreInfo(returnedData.drinks);
@@ -30,4 +31,4 @@ export async function onLearnMore(event) {
   } catch (error) {
     console.log(error.message);
   }
-}
+};

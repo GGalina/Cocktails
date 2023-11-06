@@ -1,8 +1,6 @@
 import * as icons from '../images/svg/user.svg';
 import { refs } from '../js/global/refs';
-
 const { authorization, linkToSignOut } = refs;
-// Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 
 import {
@@ -23,8 +21,6 @@ import {
   signOut,
   onAuthStateChanged,
 } from 'firebase/auth';
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -36,9 +32,6 @@ const firebaseConfig = {
   appId: '1:393564713998:web:635571a7cde75de092385f',
   databaseURL: 'https://goit-js-default-rtdb.europe-west1.firebasedatabase.app',
 };
-
-// const btnIn = document.querySelector('#btnAuth');
-// const btnOut = document.querySelector('#btnOut');
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -77,23 +70,15 @@ export function authorize() {
       // This gives you a Google Access Token. You can use it to access the Google API.
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
-      // The signed-in user info.
-      // console.log(user.uid, user.displayName, user.email);
-      window.location.reload();
-      // set(ref(db, 'users/' + user.uid), {
-      //   username: user.displayName,
-      //   email: user.email
-      // });
+       window.location.reload();
     })
     .catch(error => {
-      // Handle Errors here.
       const errorCode = error.code;
       const errorMessage = error.message;
       // The email of the user's account used.
       const email = error.customData.email;
       // The AuthCredential type that was used.
       const credential = GoogleAuthProvider.credentialFromError(error);
-      // ...
     });
 }
 
@@ -106,9 +91,6 @@ export function writeFavoriteDrinks(userId, favoriteDrinks) {
       name: drink.name,
     }).catch(error => alert('unsuccessful, error' + error));
   });
-  // set(ref(db, `users/${userId}`), { favoriteDrinks })
-  // .then(() => console.log('data stored successfully'))
-  // .catch((error) => alert('unsuccessful, error' + error));
 }
 
 export function readFavoriteDrinks(userId) {
@@ -121,10 +103,7 @@ export function readFavoriteDrinks(userId) {
           for (const key in snapshot.val()) {
             favDrinksArr.push(snapshot.val()[key]);
           }
-          // console.log(favDrinksArr);
           return favDrinksArr;
-        } else {
-          // alert('No favorite drinks found');
         }
       })
       .catch(error => {

@@ -3,6 +3,7 @@
   margin-left: auto;
   margin-right: auto;
 }
+
 .header__container {
   display: flex;
   align-items: center;
@@ -15,10 +16,12 @@
   margin-left: auto;
   margin-right: auto;
 }
+
 .nav-menu {
   position: relative;
   display: inline-block;
 }
+
 .nav-menu__link {
   display: flex;
   gap: 2px;
@@ -29,6 +32,7 @@
   letter-spacing: 0.02em;
   color: $main-color2;
   text-align: center;
+  cursor: pointer;
 }
 
 .dropbtn {
@@ -40,6 +44,7 @@
 .dropdown-menu__item {
   width: 210px;
 }
+
 .dropdown-menu__link {
   color: black;
   padding: 12px 35px 12px 12px;
@@ -49,9 +54,11 @@
 .dropdown-menu__item:hover {
   background-color: $main-color;
 }
+
 .dropdown-menu__item:hover .dropdown-menu__link {
   color: $main-color3;
 }
+
 .nav-menu__items {
   position: relative;
 }
@@ -69,6 +76,7 @@
   z-index: 1;
   box-shadow: 0px 0px 12px 2px rgba(246, 242, 242, 0.59);
 }
+
 .dropdown-menu.mobil {
   position: absolute;
   left: 0px;
@@ -82,6 +90,7 @@
     transform: translate(-25%, 70%);
   }
 }
+
 .show {
   display: block;
 }
@@ -89,6 +98,7 @@
 .nav-menu__items {
   display: block;
 }
+
 .nav-menu__item {
   font-family: Poppins;
   font-size: 28px;
@@ -116,6 +126,7 @@
     height: 10px;
     background-color: $main-color;
   }
+
   &::placeholder {
     font-weight: 400;
     font-size: 14px;
@@ -124,14 +135,17 @@
     color: $input_plholder;
     opacity: 0.4;
   }
+
   &:focus-visible {
     border: 1px solid $main-color;
   }
 }
+
 .change-color__block {
   display: flex;
   position: relative;
 }
+
 .header__light,
 .header__dark {
   font-family: Poppins;
@@ -140,9 +154,11 @@
   font-size: 18px;
   line-height: 1.13;
 }
-.header__light{
-color: $accent;
+
+.header__light {
+  color: $accent;
 }
+
 .switch {
   display: inline-block;
   position: relative;
@@ -153,11 +169,13 @@ color: $accent;
   margin-left: 12px;
   margin-right: 12px;
 }
+
 .switch__input {
   width: 0;
   height: 0;
   opacity: 0;
 }
+
 .slider__round {
   position: absolute;
   cursor: pointer;
@@ -170,6 +188,7 @@ color: $accent;
   /* Grapefruit */
   border: 0.604701px solid $main-color;
 }
+
 .slider__round::before {
   content: '';
   position: absolute;
@@ -184,6 +203,7 @@ color: $accent;
 
   background-color: $main-color;
 }
+
 .switch__input:checked + .slider__round {
   background: $main-color;
   border-radius: 20px;
@@ -195,6 +215,7 @@ color: $accent;
   background-color: $main-color3;
   transform: translateX(20px);
 }
+
 .search__form {
   position: relative;
   display: block;
@@ -204,6 +225,7 @@ color: $accent;
   margin-right: 40px;
   margin-right: 120px;
 }
+
 .svg-icon__search {
   position: absolute;
   top: 9px;
@@ -211,14 +233,17 @@ color: $accent;
   float: left;
   fill: $main-color;
 }
-.svg-icon__line{
+
+.svg-icon__line {
   position: absolute;
   top: 10px;
   left: 100px;
 }
-.form__input:not(:placeholder-shown)+.svg-icon__line{
+
+.form__input:not(:placeholder-shown)+.svg-icon__line {
   display: none;
 }
+
 .search__btn {
   position: absolute;
   top: 0;
@@ -241,6 +266,7 @@ color: $accent;
   width: 32px;
   height: 32px;
   padding: 0;
+  cursor: pointer;
 
   @include desktop {
     display: none;
@@ -259,6 +285,7 @@ color: $accent;
 .mob-menu__container.is-open {
   transform: translateX(0);
 }
+
 .mob-menu__container {
   flex-direction: column;
   justify-content: space-between;
@@ -282,11 +309,12 @@ color: $accent;
   margin-bottom: 40px;
 }
 
-@media screen and (min-width: 768px) {
+@include tabletPlus {
   .section__header {
     max-width: 768px;
   }
 }
+
 .form__input:placeholder-shown::after {
   content: ' ';
   width: 10px;
@@ -296,6 +324,7 @@ color: $accent;
   position: absolute;
   top: 50px;
 }
+
 @media screen and (max-width: 1279px) {
   .change-color__block.desc {
     display: none;
@@ -367,6 +396,7 @@ color: $accent;
     margin-right: 60px;
   }
 }
+
 @include desktop {
   .header__container {
     padding-left: 16px;

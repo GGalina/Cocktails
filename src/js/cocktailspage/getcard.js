@@ -1,13 +1,13 @@
-import { defuneButton } from './getaddremovebutton';
+import { defineButton } from './getaddremovebutton';
 
 export function getCocktailsCard(data) {
   return `
     <li class="cocktail-item">
       <div class="cocktail-card">
-        <a class="cocktail-link js-data-modal-open" href="#">
+        <a class="cocktail-link js-data-modal-open" href="#" >
           <img class="cocktail-picture" src="${data.strDrinkThumb}" alt="${
-    data.strDrink
-  }" data-id="${data.idDrink}">
+            data.strDrink
+            }" data-id="${data.idDrink}">
         </a>
         <p class="cocktail-label">${data.strDrink}</p>
         <div class="cocktail-card-btn-wrapper">
@@ -15,9 +15,9 @@ export function getCocktailsCard(data) {
             data.idDrink
           }">Learn more
           </button>
-          ${defuneButton(data.idDrink, data.strDrink, data.strDrinkThumb)}
+          ${defineButton(data.idDrink, data.strDrink, data.strDrinkThumb)}
         </div>
       </div>
     </li>
-    `;
-}
+  `;
+};

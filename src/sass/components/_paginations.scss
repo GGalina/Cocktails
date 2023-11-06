@@ -3,22 +3,24 @@
     align-items: center;
     justify-content: center;
 
-    &-list{
+    &-list {
         margin: 0;
         padding: 0;
         display: flex;
         list-style: none;
         justify-content: center;
         align-items: center;
-
         gap: 4px;
+
         @include tabletPlus{
             gap: 14px;
         }
     }
-    &-arrow{
+
+    &-arrow {
         width: 28px;
         height: 28px;
+        cursor: pointer;
 
         @include tabletPlus {
             width: 60px;
@@ -38,16 +40,19 @@
         background-color: transparent;
 
         &:hover,
-        &:focus{
+        &:focus {
             color: $main-button;
         }
     }
+
     &-icon {
         fill: currentColor;
     }
+
     &-number {
         width: 28px;
         height: 28px;
+        cursor: pointer;
     
         @include tabletPlus {
             width: 40px;
@@ -62,8 +67,9 @@
         color: $main-button;
         border: 1px solid $border-color;
         border-radius: 4px;
+
         &:hover,
-        &:focus{
+        &:focus {
             background-color: $main-button;
             color: $border-color2;
         }
@@ -94,34 +100,36 @@
     border-radius: 4px;
 }
 
-.prew-button{
+.prew-button {
     @include tablet {
         margin-right: 108px;
     }
+
     @include desktop {
         margin-right: 198px;
     }
 }
 
-.next-button{
+.next-button {
     @include tablet {
         margin-left: 108px;
     }
+
     @include desktop {
         margin-left: 198px;
     }
 }
 
-.is-hiden{
+.is-hiden {
     display: none;
 }
 
-.active{
+.active {
     background-color: $main-button;
     color: $border-color2;
 }
 
-.pading{
+.padding {
     padding-top: 24px;
     
     @include tabletPlus {
