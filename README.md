@@ -41,11 +41,17 @@ To start the project, run the following command:
 
 ## Technologies Used
 **HTML**: Used for structuring the web pages.  
+
 **SASS**: Used for styling the user interface.  
+
 **JavaScript**: Implemented the application's logic, including handling user interactions and making AJAX requests to the REST API.  
+
 **REST API**: Used to fetch cocktail and ingredient data.  
+
 **AJAX**: Utilized to make asynchronous requests to the API.  
+
 **Parcel**: Used as a build tool to bundle and compile the project.  
+
 
 ## Project Structure
 
