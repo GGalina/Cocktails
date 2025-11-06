@@ -1,0 +1,36 @@
+<section class="cocktails" id="results">
+  <div class="container">
+    <h1 class="cocktails-title no-cocktails__text js-changeclrwh">Cocktails</h1>
+    <div class="no-cocktails__wrapper is-hidden">
+      <picture>
+        <source
+          srcset="
+            ./images/img/no-find-desktop-1x-min.png 1x,
+            ./images/img/no-find-desktop-2x-min.png 2x
+          "
+          media="(min-width: 1280px)"
+        />
+        <source
+          srcset="
+            ./images/img/no-find-tablet-1x-min.png 1x,
+            ./images/img/no-find-tablet-2x-min.png 2x
+          "
+          media="(min-width: 768px)"
+        />
+        <source
+          srcset="
+            ./images/img/no-find-mobile-1x-min.png 1x,
+            ./images/img/no-find-mobile-2x-min.png 2x
+          "
+          media="(max-width: 767px)"
+        />
+        <img
+          src="images/img/no-find-desktop-1x-min.png"
+          alt="Sorry, we didn't find any cocktail for you"
+          class="no-find__image"
+        />
+      </picture>
+    </div>
+    <ul class="cocktails-list list"></ul>
+  </div>
+</section>
